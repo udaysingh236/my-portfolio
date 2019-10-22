@@ -1,0 +1,72 @@
+<% include partials/header %>
+<% include partials/navbar %>
+
+<div class="container">
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center">Get In Touch</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact me directly. I will come back to you within
+        a matter of hours.</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-lg-7">
+            <form id="contact-form" class="needs-validation" novalidate name="contact-form" action="/contactMe" method="POST"> 
+                <div class="form-group row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Your Name" id="validationDefault01" required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                      <input type="email" class="form-control" placeholder="Your Email" id="validationDefaultUsername" aria-describedby="inputGroupPrepend" required>
+                      <div class="invalid-feedback">
+                        Please choose a username.
+                      </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                      <input type="text" class="form-control" placeholder="Subject" required="true">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col">
+                      <textarea name="message" id="idMessage" class="form-control" rows="4" placeholder="Message"></textarea>
+                    </div>
+                </div>
+            </form>
+            <div class="text-center">
+                <!-- <a class="btn btn-outline-primary btn-lg" onclick="document.getElementById('contact-form').submit();">Send</a> -->
+                <button class="btn btn-primary" type="submit">Submit form</button>
+            </div>
+            <div class="status"></div>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-5 text-center">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>Maharashtra, Mumbai 400604, INDIA</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>+91-7898725075</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>udaysingh236@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+</div>
+
+<% include partials/footer %>

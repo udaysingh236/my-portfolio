@@ -22,7 +22,11 @@ router.get('/about', (req, res, next) => {
 });
 
 router.get('/contact', (req, res, next) => {
-  res.render('contact', {page:'Contact Us', menuId:'contact'});
+  let payload = {
+    title: "Uday Singh"
+  }
+  console.log('Some asked for the contact page');
+  res.render('contact', {payload: payload});
 });
 
 module.exports = router;
