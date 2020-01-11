@@ -17,8 +17,12 @@ router.get('/healthcheck', (req, res, next) => {
   res.send('Healthy\n');
 });
 
-router.get('/about', (req, res, next) => {
-  res.render('about', {page:'About Us', menuId:'about'});
+router.get('/blog', (req, res, next) => {
+  let payload = {
+    title: "Uday Singh"
+  }
+  console.log('Some asked for the blog page');
+  res.render('blog', {payload: payload});
 });
 
 router.get('/contact', (req, res, next) => {
