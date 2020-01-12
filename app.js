@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // handle http to https redirect excluding healthcheck
 app.use((req, res, next) => {
-    const xfp = req.headers["X-Forwarded-Proto"] || req.headers["x-forwarded-proto"];
+    const xfp = req.headers["x-forwarded-proto"] || "";
     if (xfp === "http" && req.url !== "/healthcheck") {
         res.redirect(301, 'https://' + req.headers.host + req.url);
       } else {
