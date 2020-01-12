@@ -3,9 +3,16 @@ const express   = require('express')
     path        = require('path')
     index       = require('./routes/index')
     logger      = require('morgan');
+const bodyParser = require("body-parser");
 
 // setup express to use
 const app = express();
+
+// support parsing of application/json type post data
+app.use(bodyParser.json());
+
+//support parsing of application/x-www-form-urlencoded post data
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
 app.set('views', path.join(__dirname, '/views'));
@@ -38,7 +45,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
     // render the error page
     res.status(err.status || 500);
-    res.render('error', {status:err.status, message:err.message});
+    res.render('error', {status:err.status, message:err.message + " \n Redirecting to home page..!!"});
 });
 
 module.exports = app;
