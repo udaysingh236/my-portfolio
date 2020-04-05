@@ -1,0 +1,47 @@
+<% include partials/header %>
+<!-- My skills body start -->
+<div class="container">
+  <br>
+  <br>
+  <h3 align='center'><strong>India COVID-19 Tracker</strong></h3>
+  <h4 align='center'><strong>Click <a href="/covid">here</a> to go to the main page.</strong></h4>
+  <h6 align='center'>Updated at: <%= payload.lastupdatedtime %></h6>
+  <br>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col"><strong>State: <%= payload.state %></strong></div>
+      <div class="col"><strong>Total Active: <%= payload.active %></strong></div>
+      <div class="col"><strong>Total Confirmed: <%= payload.confirmed %></strong></div>
+      <div class="col"><strong>Total Recovered: <%= payload.recovered %></strong></div>
+      <div class="col"><strong>Total Deaths: <%= payload.deaths %></strong></div>
+    </div>
+  </div>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">District</th>
+        <th scope="col">Confirmed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% payload.alldistrictsData.forEach(element => { %>
+      <tr>
+        <th scope="row"><%= element.district %></th>
+        <td><%= element.confirmed %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h6 align='center'>Note: Data is taken from <a href="https://www.covid19india.org/"> Here</a>. If you have any
+    concern/suggestion, please click <a href="https://udaysingh.xyz/contact">here</a> to get in touch. Please note this
+    page has been created only for imformation purpose nothing more.</h6>
+</div>
+<!-- My skilles body end -->
+<br>
+<br>
+</body>
+
+</html>

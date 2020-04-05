@@ -1,5 +1,5 @@
 const express = require('express');
-const router  = express.Router();
+const router = express.Router();
 const sendEmail = require("../utils/email-send");
 
 /* GET home page. */
@@ -8,7 +8,9 @@ router.get('/', (req, res, next) => {
     title: "Uday Singh"
   }
   console.log('Some asked for the home page');
-  res.render('index', {payload: payload});
+  res.render('index', {
+    payload: payload
+  });
 });
 
 // Healthcheck route for Load balancer
@@ -23,7 +25,9 @@ router.get('/blog', (req, res, next) => {
     title: "Uday Singh"
   }
   console.log('Some asked for the blog page');
-  res.render('blog', {payload: payload});
+  res.render('blog', {
+    payload: payload
+  });
 });
 
 router.get('/contact', (req, res, next) => {
@@ -31,17 +35,19 @@ router.get('/contact', (req, res, next) => {
     title: "Uday Singh"
   }
   console.log('Some asked for the contact page');
-  res.render('contact', {payload: payload});
+  res.render('contact', {
+    payload: payload
+  });
 });
 
 // Contact form submission
 router.post("/contactMe", (req, res, next) => {
-// lets first validate the inputs
+  // lets first validate the inputs
   if (req.body.userName.length === 0 ||
     req.body.userEmail.length === 0 ||
     req.body.subject.length === 0 ||
-    req.body.message.length === 0 
-    ){
+    req.body.message.length === 0
+  ) {
     let err = new Error('All the fields are required..!!');
     next(err);
   }
@@ -54,7 +60,7 @@ router.post("/contactMe", (req, res, next) => {
     date: new Date(),
   };
 
-  sendEmail.sendEmails(details,req, res, next);
+  sendEmail.sendEmails(details, req, res, next);
 });
 
 module.exports = router;

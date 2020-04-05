@@ -1,0 +1,55 @@
+<% include partials/header %>
+<!-- My skills body start -->
+<div class="container">
+  <br>
+  <br>
+  <h3 align='center'><strong>India COVID-19 Tracker</strong></h3>
+  <h4 align='center'><strong>Click on state's name to get the district wise data of that state.</strong></h4>
+  <h6 align='center'>Updated at: <%= payload.lastupdatedtime %></h6>
+  <br>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col"><strong>Total Active: <%= payload.active %></strong></div>
+      <div class="col"><strong>Total Confirmed: <%= payload.confirmed %></strong></div>
+      <div class="col"><strong>Total Recovered: <%= payload.recovered %></strong></div>
+      <div class="col"><strong>Total Deaths: <%= payload.deaths %></strong></div>
+      <!-- <div class="col">Updated time: <%= payload.lastupdatedtime %></div> -->
+    </div>
+  </div>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">State</th>
+        <th scope="col">Confirmed</th>
+        <th scope="col">Active</th>
+        <th scope="col">Recovered</th>
+        <th scope="col">Deaths</th>
+        <th scope="col">Updated At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% payload.allStatesData.forEach(element => { %>
+      <tr>
+        <th scope="row"><a href="covid/state/<%= element.state %>"><%= element.state %></a></th>
+        <td><%= element.confirmed %></td>
+        <td><%= element.active %></td>
+        <td><%= element.recovered %></td>
+        <td><%= element.deaths %></td>
+        <td><%= element.lastupdatedtime %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+  <h6 align='center'>Note: Data is taken from <a href="https://www.covid19india.org/"> Here</a>. If you have any
+    concern/suggestion, please click <a href="https://udaysingh.xyz/contact">here</a> to get in touch. Please note this
+    page has been created only for imformation purpose nothing more.</h6>
+</div>
+<!-- My skilles body end -->
+<br>
+<br>
+</body>
+
+</html>
